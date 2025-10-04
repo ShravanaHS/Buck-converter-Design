@@ -3,7 +3,9 @@ A compact LM2596-based DC-DC buck converter with a 2-layer PCB. Delivers an adju
 
 # Regulated DC-DC Buck Converter using LM2596
 
-![3D model of the Buck Converter PCB](https://i.imgur.com/your-image-url.png) ## 1. Introduction
+![3D model of the Buck Converter PCB](https://i.imgur.com/your-image-url.png) 
+
+## 1. Introduction
 
 This repository contains the complete design files for a compact and reliable DC-DC step-down (buck) converter based on the **LM2596** switching regulator. The project is designed to be a versatile power supply solution, capable of converting a high DC input voltage into a lower, stable, and precisely adjustable DC output. It is an ideal project for demonstrating skills in power electronics, schematic capture, and PCB layout.
 
@@ -26,33 +28,33 @@ The objective of this project is to design and build an efficient, regulated pow
 ## 3. Specifications Based Block Diagram (White-Box Analysis)
 
 This diagram breaks down the circuit into its core functional blocks, showing the flow of power and control with key design specifications.
-
 ```mermaid
 graph TD
     subgraph Input Stage
-        A[Input Connector <br><b>7V-35V DC</b>] --> B{Fuse <br><b>1.5A Slow-Blow</b>};
-        B --> C{Reverse Polarity Diode <br><b>1N4004</b>};
-        C --> D[Input Capacitor <br><b>100µF, 50V</b>];
+        A["Input Connector<br>7V-35V DC"] --> B{"Fuse<br>1.5A Slow-Blow"};
+        B --> C{"Reverse Polarity Diode<br>1N4004"};
+        C --> D["Input Capacitor<br>100µF, 50V"];
     end
 
     subgraph Converter Core
-        E[Regulator IC <br><b>LM2596S-ADJ</b>];
-        F[Catch Diode <br><b>1N5822 Schottky</b>];
-        G[Power Inductor <br><b>100µH, >2A Sat</b>];
+        E["Regulator IC<br>LM2596S-ADJ"];
+        F["Catch Diode<br>1N5822 Schottky"];
+        G["Power Inductor<br>100µH, >2A Sat"];
     end
 
     subgraph Feedback Network
-        H["Potentiometer (R2)<br>10kΩ"]
-        I[Fixed Resistor (R1) <br><b>1.5kΩ</b>];
+        H["Potentiometer (R2)<br>10kΩ"];
+        I["Fixed Resistor (R1)<br>1.5kΩ"];
     end
 
     subgraph Output Stage
-        J[Output Capacitor <br><b>220µF, 25V</b>];
-        K[HF Filter Cap <br><b>0.1µF Ceramic</b>];
+        J["Output Capacitor<br>220µF, 25V"];
+        K["HF Filter Cap<br>0.1µF Ceramic"];
         L[Indicator LED];
-        M[Output Connector <br><b>1.23V-9.43V, 1A</b>];
+        M["Output Connector<br>1.23V-9.43V, 1A"];
     end
 
+    %% Connections
     D --> E;
     E -- Pin 2 --> G;
     E -- Pin 3 --> GND;
@@ -68,7 +70,6 @@ graph TD
     F -- Cathode --> GND;
     F -- Anode --> G;
 ```
-
 ---
 
 ## 4. Component Selection and Calculations

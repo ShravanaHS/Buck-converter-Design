@@ -29,6 +29,36 @@ The objective of this project is to design and build an efficient, regulated pow
 ## 3. Specifications Based Block Diagram (White-Box Analysis)
 
 This diagram breaks down the circuit into its core functional blocks, showing the flow of power and control with key design specifications.
+![specification based block diagram](https://github.com/ShravanaHS/Buck-converter-Design/blob/main/images/Screenshot%202025-10-04%20214042.png)
+
+---
+
+## 4. Component Selection and Calculations
+
+Component selection was driven by the project specifications to ensure reliable and efficient performance.
+
+### **Regulator IC (LM2596S-ADJ)**
+* **Reasoning:** Chosen for its robustness, high current capability (3A), integrated protection features, and wide input voltage range (up to 40V). The adjustable version provides design flexibility.
+
+### **Power Inductor (L1)**
+* **Calculation:** The inductance value is chosen to limit the inductor's ripple current ($\Delta I_L$) to ~30% of the maximum load current (1A).
+    * $\Delta I_L = 1A \times 30\% = 0.3A$
+    * $L = \frac{V_{out} \times (V_{in(max)} - V_{out})}{V_{in(max)} \times \Delta I_L \times f_{sw}} = \frac{5V \times (35V - 5V)}{35V \times 0.3A \times 150000Hz} \approx 95 \mu H$
+* **Selection:** A standard **100 µH** shielded power inductor was chosen. The saturation current rating (**>2A**) is critical and provides a safe margin over the peak current of 1.15A.
+
+### **Feedback Network (R1, R2)**
+* **Calculation:** The output voltage is set by the voltage divider R1/R2 and the IC's internal reference voltage ($V_{ref} = 1.23V$). The formula is $V_{out} = V_{ref} \times (1 + R2/R1)$.
+    * **R1 Selection:** A fixed resistor of **1.5 kΩ** was chosen.
+    * **R2 Selection:** A **10 kΩ** multiturn potentiometer was chosen for R2 to provide an adjustable output.
+    * **Min Voltage** ($R2=0\Omega$): $V_{out} = 1.23V \times (1 + 0/1.5k) = \textbf{1.23V}$
+    * **Max Voltage** ($R2=10k\Omega$): $V_{out} = 1.23V \times (1 + 10k/1.5k) \approx \textbf{9.43V}$
+
+---
+
+## 5. Block Diagram with Actual Components (Black-Box Analysis)
+
+This diagram shows the physical implementation of the block diagram with images of the selected components.
+
 ```mermaid
 graph TD
     subgraph Input Stage
@@ -71,34 +101,6 @@ graph TD
     F -- Cathode --> GND;
     F -- Anode --> G;
 ```
----
-
-## 4. Component Selection and Calculations
-
-Component selection was driven by the project specifications to ensure reliable and efficient performance.
-
-### **Regulator IC (LM2596S-ADJ)**
-* **Reasoning:** Chosen for its robustness, high current capability (3A), integrated protection features, and wide input voltage range (up to 40V). The adjustable version provides design flexibility.
-
-### **Power Inductor (L1)**
-* **Calculation:** The inductance value is chosen to limit the inductor's ripple current ($\Delta I_L$) to ~30% of the maximum load current (1A).
-    * $\Delta I_L = 1A \times 30\% = 0.3A$
-    * $L = \frac{V_{out} \times (V_{in(max)} - V_{out})}{V_{in(max)} \times \Delta I_L \times f_{sw}} = \frac{5V \times (35V - 5V)}{35V \times 0.3A \times 150000Hz} \approx 95 \mu H$
-* **Selection:** A standard **100 µH** shielded power inductor was chosen. The saturation current rating (**>2A**) is critical and provides a safe margin over the peak current of 1.15A.
-
-### **Feedback Network (R1, R2)**
-* **Calculation:** The output voltage is set by the voltage divider R1/R2 and the IC's internal reference voltage ($V_{ref} = 1.23V$). The formula is $V_{out} = V_{ref} \times (1 + R2/R1)$.
-    * **R1 Selection:** A fixed resistor of **1.5 kΩ** was chosen.
-    * **R2 Selection:** A **10 kΩ** multiturn potentiometer was chosen for R2 to provide an adjustable output.
-    * **Min Voltage** ($R2=0\Omega$): $V_{out} = 1.23V \times (1 + 0/1.5k) = \textbf{1.23V}$
-    * **Max Voltage** ($R2=10k\Omega$): $V_{out} = 1.23V \times (1 + 10k/1.5k) \approx \textbf{9.43V}$
-
----
-
-## 5. Block Diagram with Actual Components (Black-Box Analysis)
-
-This diagram shows the physical implementation of the block diagram with images of the selected components.
-
 
 
 ---

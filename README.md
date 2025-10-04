@@ -3,7 +3,7 @@ A compact LM2596-based DC-DC buck converter with a 2-layer PCB. Delivers an adju
 
 # Regulated DC-DC Buck Converter using LM2596
 
-![3D model of the Buck Converter PCB](https://i.imgur.com/your-image-url.png) 
+![3D model of the Buck Converter PCB](https://github.com/ShravanaHS/Buck-converter-Design/blob/main/images/3dd.png) 
 
 ## 1. Introduction
 
@@ -126,24 +126,30 @@ This diagram shows the physical implementation of the block diagram with images 
 
 Below is the complete circuit diagram for the buck converter.
 
-![Schematic of the LM2596 Buck Converter](https://i.imgur.com/your-schematic-image.png) ---
+![Schematic of the LM2596 Buck Converter](https://github.com/ShravanaHS/Buck-converter-Design/blob/main/images/schematic.png) 
+
+---
 
 ## 8. PCB Layout
 
 The circuit is implemented on a compact two-layer PCB. Power traces are widened to handle the current, and a ground plane is used on the bottom layer for thermal management and signal integrity.
 
 ### Top Layer
-![PCB Top Layer](https://i.imgur.com/your-pcb-top-image.png) ### Bottom Layer
-![PCB Bottom Layer](https://i.imgur.com/your-pcb-bottom-image.png) ---
+![PCB All Layer](https://github.com/ShravanaHS/Buck-converter-Design/blob/main/images/layout.png) 
+
+---
 
 ## 9. 3D Diagram
 
 A 3D rendering of the final assembled PCB.
 
-![3D model of the Buck Converter PCB](https://i.imgur.com/your-3d-model-image.png) ---
+![3D model of the Buck Converter PCB](https://github.com/ShravanaHS/Buck-converter-Design/blob/main/images/3df.png) 
 
-## 10. Schematic Capture
+![3D model of the Buck Converter PCB](https://github.com/ShravanaHS/Buck-converter-Design/blob/main/images/3db.png) 
 
-The schematic was captured using KiCad, with logical separation of the functional blocks for clarity and ease of debugging.
 
-![Screenshot of Schematic Capture in KiCad](https://i.imgur.com/your-kicad-screenshot.png) ````
+
+
+---
+
+
